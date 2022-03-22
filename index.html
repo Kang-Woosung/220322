@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: lightyellow;
+      transition: 1s;
+    }
+
+    .bgcolor--blue {
+      
+      transition: 1s;
+      background-color: lightblue;
+    }
+    .bgcolor--gray {
+      
+      transition: 1s;
+      background-color: rgb(255, 204, 157);
+    }
+    .bg__img { 
+      margin: 0;
+      position: absolute;
+      background-image: url(images/bg_img.png);
+      transition: all 1s;
+      width: 1920px;
+      height: 1080px;
+      opacity: 0;
+    }
+    .bg__img--show{
+      opacity: 1;
+    }
+    .btn {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 50px;
+      margin-left: 600px;
+      width: 600px;
+      transition: 1s;
+    }
+    button:hover {
+      background-color: rgb(176, 181, 240);
+      transition: 0.5s;
+    }
+    button {
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 25px;
+      width: 120px;
+      height: 60px;
+      font-size: 15px;
+      border: #000;
+    }
+    
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <div class="bg__img"></div>
+  <div class="btn">
+    <button class="btn_tg">Toggle</button>
+    <button class="btn_re">Reset</button>
+    <button class="btn_gr">Color</button>
+    <button class="btn_pic">Image</button>
+  </div>
+
+  <script> 
+    const bgContainer = document.querySelector('.bg__img')
+    const btnTG = document.querySelector('.btn_tg');
+    btnTG.addEventListener('click', function () {
+      document.body.classList.toggle('bgcolor--blue');
+      document.body.classList.remove('bgcolor--gray');
+      bgContainer.classList.remove('bg__img--show');
+    })
+
+    const btnRE = document.querySelector('.btn_re');
+    btnRE.addEventListener('click', function() {
+      document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg--img');
+      bgContainer.classList.remove('bg__img--show')
+    })
+
+    const btnGR = document.querySelector('.btn_gr');
+    btnGR.addEventListener('click', function () {
+      document.body.classList.add('bgcolor--gray');
+      document.body.classList.remove('bgcolor--blue', 'bg--img');
+      bgContainer.classList.remove('bg__img--show')
+    })
+
+    const btnPIC = document.querySelector('.btn_pic');
+    btnPIC.addEventListener('click', function () {
+      bgContainer.classList.add('bg__img--show')
+    })
+  </script>
+</body>
+</html>
